@@ -1,0 +1,30 @@
+//
+//  iPhoneSpeedDialAppDelegate.h
+//  iPhoneSpeedDial
+//
+//  Created by Geykel on 9/5/08.
+//  Copyright __MyCompanyName__ 2008. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <sqlite3.h>
+
+@class Alpha_DialViewController, LocalContact;
+
+@interface Alpha_DialAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
+	IBOutlet UIWindow *window;
+	IBOutlet UITabBarController *tabBarController;
+	
+	NSMutableArray *localContactList;
+	sqlite3 *database;
+}
+
+@property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) UITabBarController *tabBarController;
+@property (nonatomic, retain) NSMutableArray *localContactList;
+
+-(void)saveContact:(LocalContact *) aLocalContact;
+-(void)deleteContact:(LocalContact *) aLocalContact;
+-(id)getByCombo:(LocalContact *) aLocalContact;
+@end
+
